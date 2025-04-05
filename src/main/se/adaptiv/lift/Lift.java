@@ -1,7 +1,10 @@
 package se.adaptiv.lift;
 
 public class Lift {
+    private int currentFloor;
+
     public Lift(int floorMin, int floorMax) {
+        currentFloor = floorMin;
     }
 
     public void request(int targetFloor) {
@@ -9,6 +12,10 @@ public class Lift {
     }
 
     public int atFloor() {
-        return 0;
+        return currentFloor;
+    }
+
+    public void move(int newFloor) {
+        currentFloor = newFloor;
     }
 }
