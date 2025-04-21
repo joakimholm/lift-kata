@@ -7,15 +7,20 @@ public class Lift {
         currentFloor = floorMin;
     }
 
-    public void request(int targetFloor) {
-        
+    public void request(int newFloor) {
+        currentFloor = newFloor;
+    }
+
+    public void call(int targetFloor, Direction direction) {
+        currentFloor = targetFloor;
     }
 
     public int atFloor() {
         return currentFloor;
     }
 
-    public void move(int newFloor) {
-        currentFloor = newFloor;
+    public DoorState doorState() {
+        return DoorState.OPEN;
     }
+
 }

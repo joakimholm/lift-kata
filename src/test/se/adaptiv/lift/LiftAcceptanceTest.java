@@ -9,9 +9,21 @@ public class LiftAcceptanceTest {
 
     @Test
     @Disabled
-    void handlesRequestsToGoToOtherFloors() {
-        Lift lift = new Lift(1, 3);
-        lift.request(2);
+    void elevatorMovesAround() {
+        Lift lift = new Lift(1, 4);
+        assertEquals(DoorState.OPEN, lift.doorState());
+
+        lift.request(3);
+        assertEquals(3, lift.atFloor());
+        // TODO Add checking series of actions
+        assertEquals(DoorState.OPEN, lift.doorState());
+
+        lift.call(2, Direction.UP);
         assertEquals(2, lift.atFloor());
+        assertEquals(DoorState.OPEN, lift.doorState());
+
+        lift.call(4, Direction.DOWN);
+        assertEquals(4, lift.atFloor());
+        assertEquals(DoorState.OPEN, lift.doorState());
     }
 }
